@@ -66,7 +66,7 @@ bool EthercatMaster::startup(){
   for(const auto & device : devices_)
   {
     if(!bus_->waitForState(EC_STATE_SAFE_OP, device->getAddress(), 50, 0.05))
-      MELO_ERROR("not in safe op after satrtup!");
+      MELO_ERROR("not in safe op after startup!");
     bus_->setState(EC_STATE_OPERATIONAL, device->getAddress());
     success &= bus_->waitForState(EC_STATE_OPERATIONAL, device->getAddress(), 50, 0.05);
   }
